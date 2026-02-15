@@ -1,0 +1,174 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, viewport-fit=cover"/>
+  <meta name="format-detection" content="telephone=no, email=no, address=no, date=no" />
+  <title>PORTFOLIO_NATSUKI ONEYAMA</title>
+
+  <link rel="stylesheet" href="https://use.typekit.net/tar7poy.css">
+  <link rel="stylesheet" href="./index.css" />
+
+  <!-- Real Masonry (Desandro) -->
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js" defer></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer></script>
+
+  <script src="./index.js" defer></script>
+</head>
+
+<body>
+  <div class="layout">
+
+    <!-- NAV -->
+    <header class="nav" data-nav>
+      <div class="nav-inner">
+        <div class="nav-top">
+          <a class="brand" href="index.html" aria-label="Home">NATSUKI ONEYAMA</a>
+          <a class="brand-sub" href="index.html" aria-label="Home">MAKE-UP ARTIST</a>
+        </div>
+
+        <nav id="navMenu" class="nav-menu" aria-label="Primary">
+          <a class="nav-link is-active" href="editorial.html" aria-current="page">Selected Works</a>
+          <a class="nav-link" href="mailto:natsukimua@gmail.com">Contact</a>
+
+        </nav>
+      </div>
+    </header>
+
+
+
+    <!-- PAGE -->
+    <main class="main">
+      <section class="hero-portfolio" aria-label="Selected Works">
+        <div id="grid" class="masonry" aria-label="Masonry Grid">
+          <div class="grid-sizer" aria-hidden="true"></div>
+
+          <!-- ====== SAMPLE ITEMS (replace paths) ====== -->
+          <figure class="jl-item">
+            <img
+              src="img/pp/carldiner_01/01.webp"
+              alt="BEAUTY"
+              data-full="img/pp/carldiner_01/01.webp"
+              data-title="BEAUTY"
+              data-line1="Project Name"
+              data-line2=""
+            />
+          </figure>
+
+          <figure class="jl-item">
+            <img
+              src="img/sanstitle/001/01.webp"
+              alt="EDITORIAL"
+              data-full="img/sanstitle/001/01.webp"
+              data-title="SANS TITLE"
+              data-line1="Tess Petronio"
+              data-line2="Suzanne koller"
+            />
+          </figure>
+
+          <figure class="jl-item">
+            <img
+              src="img/voguemexico/01/01.webp"
+              alt="BEAUTY"
+              data-full="img/voguemexico/01/01.webp"
+              data-title="BEAUTY"
+              data-line1="Project Name"
+              data-line2=""
+            />
+          </figure>
+
+
+          <figure class="jl-item">
+            <img
+              src="img/costume/saschaoda/01/00.webp"
+              alt="BEAUTY"
+              data-full="img/costume/saschaoda/01/00.webp"
+              data-title="BEAUTY"
+              data-line1="Project Name"
+              data-line2=""
+            />
+          </figure>
+
+          <figure class="jl-item">
+            <img
+              src="img/flair/03.webp"
+              alt="BEAUTY"
+              data-full="img/flair/03.webp"
+              data-title="FLAIR X SPECIAL CHANEL"
+              data-line1=""
+              data-line2=""
+            />
+          </figure>
+
+            
+          <figure class="jl-item is-video" data-w="1152" data-h="648">
+          <video
+          src="video/v06.mp4"
+          muted
+          loop
+          playsinline
+          autoplay
+          ></video>
+
+          <div class="lb-data"
+          data-type="video"
+          data-full="video/v06.mp4"
+          data-title="CLARINS"
+          data-line1=""
+          data-line2=""
+          ></div>
+          </figure>
+
+
+
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===== CUSTOM LIGHTBOX (gm) ===== -->
+  <div class="gm" aria-hidden="true" id="gm">
+    <button class="gm-backdrop" aria-hidden="true"></button>
+
+    <div class="gm-frame">
+      <img id="gmImage" class="gm-img" alt="">
+      <div class="gm-video-wrap" hidden>
+        <video id="gmVideo" playsinline muted></video>
+
+        <div class="sv-controls">
+          <div class="sv-progress">
+            <div class="sv-progress__bar"></div>
+          </div>
+
+          <div class="sv-nav">
+            <button type="button" class="sv-btn sv-btn--play">PAUSE</button>
+            <button type="button" class="sv-btn sv-btn--fs">FULL</button>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      <div class="gm-caption">
+        <p class="gm-name">
+          <a href="index.html" class="gm-main">NATSUKI ONEYAMA</a><br>
+          <span class="gm-subtitle">MAKE-UP ARTIST</span>
+        </p>
+
+        
+        <p class="gm-ttl"></p>
+        <p class="gm-sub"></p>
+      </div>
+
+
+      <!--  <div class="gm-counter"></div>  -->
+      <button class="gm-close">BACK</button>
+
+      <button class="gm-hit gm-prev" aria-label="Previous"></button>
+      <button class="gm-hit gm-next" aria-label="Next"></button>
+    </div>
+  </div>
+</body>
+</html>
