@@ -305,36 +305,83 @@ width: 100%;
 
 
 /* Masonry_js caption */
-.jl-item{ position: relative; }
-
-.jl-item .jl-caption{
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  right: 10px;
-
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-
-  color: #111;
-  background: rgba(255,255,255,0.70);
-  padding: 6px 8px;
-
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 160ms ease, transform 160ms ease;
-
-  pointer-events: none;
+.jl-item{
+  position: relative;
 }
 
+/* キャプション（中央テキスト） */
+.jl-item .jl-caption{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 0 14px;
+
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+.jl-cap-title{
+  font-size: .7rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: #111;
+
+}
+
+.jl-cap-line{
+  margin-top: 6px;
+
+  font-size: .7rem;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: #111;
+
+  opacity: .85;
+
+  display:none;
+}
+
+
+@media (max-width:480px){
+  .jl-cap-title{ font-size:18px; }
+  .jl-cap-line{ font-size:12px; }
+}
+
+
+/* フェード（画像を白っぽくする） */
+.jl-item::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(255,255,255,0.55);
+
+  opacity: 0;
+  transition: opacity 180ms ease;
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+/* PC: hover で表示 */
 @media (hover:hover) and (pointer:fine){
+  .jl-item:hover::after{ opacity: 1; }
   .jl-item:hover .jl-caption{
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* Touch: 1回目タップで付くクラスで表示 */
+.jl-item.is-caption-visible::after{ opacity: 1; }
 .jl-item.is-caption-visible .jl-caption{
   opacity: 1;
   transform: translateY(0);

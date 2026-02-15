@@ -165,26 +165,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // -------------------------
   // THUMB CAPTION: build from data-title
   // -------------------------
-  items.forEach((item) => {
-    if (item.querySelector('.jl-caption')) return;
+items.forEach((item) => {
+  if (item.querySelector('.jl-caption')) return;
 
-    let title = '';
+  const img  = item.querySelector('img[data-title]');
+  const meta = item.querySelector('.lb-data[data-title]');
 
-    const img = item.querySelector('img[data-title]');
-    if (img) title = img.dataset.title || '';
+  const title =
+    (img && img.dataset.title) ||
+    (meta && meta.dataset.title) ||
+    '';
 
-    if (!title) {
-      const meta = item.querySelector('.lb-data[data-title]');
-      if (meta) title = meta.dataset.title || '';
-    }
+  if (!title) return;
 
-    if (!title) return;
+  const line1 =
+    (img && img.dataset.line1) ||
+    (meta && meta.dataset.line1) ||
+    '';
 
-    const cap = document.createElement('div');
-    cap.className = 'jl-caption';
-    cap.textContent = title;
-    item.appendChild(cap);
-  });
+  const line2 =
+    (img && img.dataset.line2) ||
+    (meta && meta.dataset.line2) ||
+    '';
+
+  const cap = document.createElement('div');
+  cap.className = 'jl-caption';
+
+  cap.innerHTML = `
+    <div class="jl-cap-title">${title}</div>
+    ${line1 ? `<div class="jl-cap-line">${line1}</div>` : ''}
+    ${line2 ? `<div class="jl-cap-line">${line2}</div>` : ''}
+  `;
+
+  item.appendChild(cap);
+});
+
 
 
   // -------------------------
