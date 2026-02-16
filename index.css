@@ -26,12 +26,23 @@ body{
 }
 
 .main{
-    padding: 0 16px 16px;
+  padding: 0 8px 8px;
 }
 
+/* PCだけ：ギャラリー上に余白 */
+@media (min-width: 861px){
+  .hero-portfolio{
+    margin-top: 8px;
+  }
+}
 
-
-
+/* PCだけ：サイドnav分だけ main を右に逃がす */
+@media (min-width: 861px){
+  .main{
+    padding-left: calc(180px + 24px);
+    transition: padding-left 0.25s ease;
+  }
+}
 
 
 
@@ -137,11 +148,6 @@ body{
     align-items: flex-start;
   }
 
-  .main{
-    padding: 0 16px 16px;
-    padding-left: calc(180px + 24px);
-    transition: padding-left 0.25s ease;
-  }
 }
 
 @media (max-width: 860px){
