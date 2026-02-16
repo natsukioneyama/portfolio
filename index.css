@@ -26,7 +26,7 @@ body{
 }
 
 .main{
-  padding: 24px;
+    padding: 0 16px 16px;
 }
 
 
@@ -70,13 +70,13 @@ body{
   text-decoration: none;
   color: #111;
   font-size: 0.7rem;
-  line-height: 1.35;
+  line-height: 3;
   letter-spacing: 0.02em;
 }
 
 .brand-sub{
   font-size: 0.7rem;
-  line-height: 1.35;
+  line-height: 3;
   letter-spacing: 0.02em;
   color: #111;
   text-decoration: none;
@@ -105,14 +105,17 @@ body{
   opacity: 1;
 }
 
-.nav .js-info{
-  font-size: 0.7rem;
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  white-space: nowrap;
+
+@media (max-width: 376px){
+.brand,
+.brand-sub,
+.nav-menu,
+.nav-link
+{
+  font-size: 0.6rem;
 }
-.nav .js-info:hover{ opacity: 0.75; }
+}
+
 
 @media (min-width: 861px){
   .nav{
@@ -135,7 +138,7 @@ body{
   }
 
   .main{
-    padding: 24px;
+    padding: 0 16px 16px;
     padding-left: calc(180px + 24px);
     transition: padding-left 0.25s ease;
   }
@@ -174,7 +177,7 @@ body{
     margin-left: auto;
   }
 
-  .main{ padding: 16px; }
+ 
 }
 
 
@@ -279,16 +282,6 @@ width: calc((100% - 10px) / 2); /* 2列 + gutter10px */
 .jl-item{
 width: 100%;
 }
-
-.brand,
-.brand-sub,
-.nav-link,
-.nav .js-info
-{
-  font-size: 0.6rem;
-  line-height: 1.35;
-  letter-spacing: 0.01em;
-}
 }
 
 @media (min-width: 1092px){
@@ -336,6 +329,28 @@ width: 100%;
 
 }
 
+/* ========================================
+   Masonry caption — mobile tuning
+   ======================================== */
+@media (max-width: 768px){
+  .jl-cap-title{
+    font-size: .6rem;
+    letter-spacing: 0.12em;
+  }
+
+  .jl-caption{
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px){
+  .jl-cap-title{
+    font-size: .5rem;
+  }
+}
+
+
+
 .jl-cap-line{
   margin-top: 6px;
 
@@ -348,13 +363,6 @@ width: 100%;
 
   display:none;
 }
-
-
-@media (max-width:480px){
-  .jl-cap-title{ font-size:18px; }
-  .jl-cap-line{ font-size:12px; }
-}
-
 
 /* フェード（画像を白っぽくする） */
 .jl-item::after{
@@ -600,14 +608,33 @@ width: 100%;
   touch-action:none !important;
 }
 
-/* ================= VIDEO ================= */
 
+/* ================= VIDEO (gm) ================= */
 
+/* wrapper: 基本形 + readyまで隠す */
 .gm-video-wrap{
+  position: relative;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+
+  opacity: 0;
+  transition: opacity .35s ease;
+
+  pointer-events: auto;
+
+  /* sizing: default */
   max-width: 100%;
   max-height: 100%;
 }
 
+.gm-video-wrap.is-ready{
+  opacity: 1;
+}
+
+/* video: default sizing */
 .gm-video-wrap video{
   display: block;
   width: auto;
@@ -617,76 +644,71 @@ width: 100%;
   object-fit: contain;
 }
 
-
-.gm-video-wrap.is-ready{ opacity:1; }
-
 /* controls */
 .sv-controls{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:12px 14px;
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .25s ease;
-  z-index:10;
-  background:linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0));
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 14px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+
+  z-index: 10;
+  background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0));
 }
 
 .gm-video-wrap:hover .sv-controls{
-  opacity:1;
-  pointer-events:auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .sv-controls.is-visible{
-  opacity:1;
-  pointer-events:auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .sv-progress{
-  height:6px;
-  background:rgba(0,0,0,.3);
-  cursor:pointer;
+  height: 6px;
+  background: rgba(0,0,0,.3);
+  cursor: pointer;
 }
 
 .sv-progress__bar{
-  width:0;
-  height:100%;
-  background:#fff;
+  width: 0;
+  height: 100%;
+  background: #fff;
 }
 
 .sv-nav{
-  display:flex;
-  justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .sv-btn{
-  border:none;
-  background:transparent;
-  color:#fff;
-  font-size:11px;
-  letter-spacing:.06em;
-  cursor:pointer;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: .06em;
+  cursor: pointer;
 }
 
 @media (max-width:480px){
-  .sv-controls{ padding:8px 12px; }
+  .sv-controls{ padding: 8px 12px; }
 }
 
-
-
 /* ==========================================================================
-   FIX — mobile PORTRAIT only（数値変更なし）
+   FIX — mobile PORTRAIT only
    ========================================================================== */
 
-@media
-  (max-width: 768px)
-  and (orientation: portrait)
-  and (pointer: coarse) {
+@media (max-width: 768px) and (orientation: portrait) and (pointer: coarse){
 
   .gm-frame{
     height: calc(100svh - var(--gm-footer-h));
@@ -714,5 +736,3 @@ width: 100%;
     --gm-footer-h: 190px;
   }
 }
-
-
