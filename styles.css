@@ -20,9 +20,6 @@ body {
   padding: 0;
 }
 
-
-
-
 /* ==========================================================================
    2) CSS Variables (Design tokens)
    - --bar-h   : トップバーの想定高さ
@@ -32,10 +29,6 @@ body {
   --bar-h: 72px;
   --gutter: clamp(3px, 2vw, 5px);
 }
-
-
-
-
 
 /* ==========================================================================
    3) Body global
@@ -49,6 +42,10 @@ body {
   background: #f7F7F5; /* overview と同じ赤 */
   overflow-x: hidden;
 }
+
+
+
+
 
 
 
@@ -147,6 +144,11 @@ body {
 
 
 
+
+
+
+
+
 /* ==========================================================================
    5) Page wrapper
    - overview グリッド全体の外側余白
@@ -154,7 +156,6 @@ body {
 .page {
   padding: 0 var(--gutter) var(--gutter);
 }
-
 
 /* ==========================================================================
    6) Overview grid (justified-layout 用)
@@ -178,10 +179,6 @@ body.jl-ready #grid {
   transition: opacity 0.25s ease;
 }
 
-
-
-
-
 /* ==========================================================================
    7) Items (images & videos)
    - .jl-item は JS が left/top/width/height を付ける前提で absolute
@@ -202,9 +199,6 @@ body.jl-ready #grid {
 }
 
 
-
-
-
 /* ==========================================================================
    8) Overview caption & group highlight (hover/tap)
    - .ov-cap: 各グループの先頭サムネにだけ出すキャプション
@@ -217,7 +211,7 @@ body.jl-ready #grid {
   left: 4px;
   top: 2px;
   color: #000;
-  font-size: 0.6rem;
+  font-size: .5rem;
 
   opacity: 0;          /* 初期は非表示 */
   pointer-events: none;/* クリックを邪魔しない */
@@ -280,9 +274,6 @@ body.jl-ready #grid {
 }
 
 
-
-
-
 /* ==========================================================================
    9) Video fullscreen behavior (overview 側)
    - フルスクリーン時は contain でトリミングしない
@@ -294,10 +285,6 @@ body.jl-ready #grid {
   object-fit: contain;
   background: #000;
 }
-
-
-
-
 
 
 /* ==========================================================================
@@ -355,6 +342,11 @@ body.jl-ready #grid {
     font-size: .7rem;
   }
 }
+
+
+
+
+
 
 
 /* ==========================================================================
@@ -762,6 +754,11 @@ pointer-events: auto;
 
 
 
+
+
+
+
+
 /* ============================
   16) Info Layout
    ============================ */
@@ -798,9 +795,6 @@ pointer-events: auto;
   margin-top: 50px;
 }
 
-/* ==============
-   Desktop: 2 columns like your screenshot
-   ============== */
 @media (min-width: 980px){
 
   .info{
