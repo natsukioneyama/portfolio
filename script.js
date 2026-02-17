@@ -1086,7 +1086,7 @@ function openAt(index) {
 
   // ここを増やせば全ページ一発で反映されます
   const links = [
-    { href: 'index.html',label: 'home' },
+    { href: 'index.html',label: 'top' },
     { href: 'editorial.html',label: 'editorial' },
     { href: 'advertising.html',   label: 'advertising&digital'  },
     { href: 'hairgrooming.html',   label: 'hair grooming'  },

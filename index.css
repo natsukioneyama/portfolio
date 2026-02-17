@@ -81,7 +81,7 @@ body{
   text-decoration: none;
   color: #111;
   font-size: 0.7rem;
-  line-height: 3;
+  line-height: 0.5;
   letter-spacing: 0.02em;
 }
 
@@ -94,10 +94,9 @@ body{
 }
 
 .nav-menu{
-  margin-top: 18px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .nav-link{
@@ -105,14 +104,17 @@ body{
   text-decoration: none;
   color: #111;
   font-size: 0.7rem;
-  padding: 6px 0;
+  padding: 5px 0;
   opacity: 0.85;
 }
+
+
+
 .nav-link:hover{ opacity: 1; }
 
 .nav-link.is-active,
 .nav-link[aria-current="page"]{
-  /*text-decoration: underline; */
+  text-decoration: underline;
   opacity: 1;
 }
 
@@ -148,6 +150,9 @@ body{
     align-items: flex-start;
   }
 
+  .nav-menu .nav-link:last-child{
+   margin-top: 30px; 
+  }
 }
 
 @media (max-width: 860px){
@@ -159,16 +164,27 @@ body{
 
   .nav-inner{
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;           /* ← これで「崩れる幅」を吸収 */
+    align-items: flex-start;   /* ← line-height問題の見た目も安定 */
     justify-content: space-between;
-    gap: 16px;
+    gap: 10px 14px;
     padding: 14px 16px;
   }
-
+   
   .nav-top{
     display: flex;
-    align-items: center;
-    gap: 12px;
+    flex-direction: column;    /* ← brand を2行で安定表示 */
+    align-items: flex-start;
+    gap: 2px;
+    min-width: 140px;          /* ← 左カラムの最低幅（好みで調整） */
+  }
+
+    .brand{
+    line-height: 1.15;         /* ← 0.5 をモバイルだけ正常化 */
+  }
+
+  .brand-sub{
+    line-height: 1.15;         /* ← 3 をモバイルだけ正常化 */
   }
 
   .nav-menu{
@@ -177,15 +193,26 @@ body{
     border: 0;
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;           /* ← 右側は必要なら2段になる */
+    justify-content: flex-end; /* ← 右寄せ */
     align-items: center;
+    gap: 6px 10px;
     margin-left: auto;
+    max-width: 60vw;           /* ← 右側が長い時の安全弁 */
   }
 
+    .nav-link{
+    white-space: nowrap;       /* ← “selected works” を途中で折らない */
+  }
  
 }
 
+
+@media (max-width: 420px){
+  .nav-link{ font-size: 0.62rem; }
+  .brand, .brand-sub{ font-size: 0.62rem; }
+  .nav-menu{ gap: 6px 8px; max-width: 64vw; }
+}
 
 
 
