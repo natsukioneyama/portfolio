@@ -705,10 +705,8 @@ pointer-events: auto;
 }
 
 
-
-
 /* ==========================================================================
-   Video sizing (default)  ※B案：ここに集約（数値変更なし）
+   Video sizing (default)
    ========================================================================== */
 
 /* 動画本体（gm 内）: gm-frame の中に必ず収める */
@@ -752,15 +750,7 @@ pointer-events: auto;
     object-fit: contain;
   }
 
-
-}
-
-@media
-  (max-width: 768px)
-  and (orientation: portrait)
-  and (pointer: coarse) {
-
-  /* 1) 横動画（= portrait じゃない）を幅優先で大きく */
+  /* 横動画：幅優先で最大表示 */
   .gm:not(.is-portrait-video) .gm-video-wrap{
     max-width: 92vw;
     margin: 0 auto;
@@ -768,13 +758,13 @@ pointer-events: auto;
 
   .gm:not(.is-portrait-video) .gm-video-wrap video{
     width: 100%;
-    height: auto;          /* ← これが最重要。横が大きくなる */
+    height: auto;
     max-width: 92vw;
     max-height: 100%;
     object-fit: contain;
   }
 
-  /* 2) 縦動画だけは今まで通り高さ優先でOK */
+  /* 縦動画：高さ優先 */
   .gm.is-portrait-video .gm-video-wrap{
     max-width: 72vw;
     margin: 0 auto;
@@ -788,7 +778,6 @@ pointer-events: auto;
     object-fit: contain;
   }
 }
-
 
 
 
