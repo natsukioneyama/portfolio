@@ -349,6 +349,13 @@ body.jl-ready #grid {
 
 
 
+
+
+
+
+
+
+
 /* ==========================================================================
    12) Lightbox: gm (gallery modal)
    ========================================================================== */
@@ -697,6 +704,9 @@ pointer-events: auto;
   }
 }
 
+
+
+
 /* ==========================================================================
    Video sizing (default)  ※B案：ここに集約（数値変更なし）
    ========================================================================== */
@@ -742,25 +752,43 @@ pointer-events: auto;
     object-fit: contain;
   }
 
+
+}
+
+@media
+  (max-width: 768px)
+  and (orientation: portrait)
+  and (pointer: coarse) {
+
+  /* 1) 横動画（= portrait じゃない）を幅優先で大きく */
+  .gm:not(.is-portrait-video) .gm-video-wrap{
+    max-width: 92vw;
+    margin: 0 auto;
+  }
+
+  .gm:not(.is-portrait-video) .gm-video-wrap video{
+    width: 100%;
+    height: auto;          /* ← これが最重要。横が大きくなる */
+    max-width: 92vw;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  /* 2) 縦動画だけは今まで通り高さ優先でOK */
   .gm.is-portrait-video .gm-video-wrap{
     max-width: 72vw;
     margin: 0 auto;
   }
 
-  .gm.is-portrait-video{
-    --gm-footer-h: 190px;
-  }
-
-  /* 横動画は幅優先で大きく表示 */
-  .gm.is-landscape-video .gm-video-wrap{
-   max-width: 92vw;
-   margin: 0 auto;
-  }
-
-  .gm.is-landscape-video{
-   --gm-footer-h: 140px;
+  .gm.is-portrait-video .gm-video-wrap video{
+    height: 100%;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
   }
 }
+
 
 
 
