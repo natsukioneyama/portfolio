@@ -750,6 +750,16 @@ pointer-events: auto;
   .gm.is-portrait-video{
     --gm-footer-h: 190px;
   }
+
+  /* 横動画は幅優先で大きく表示 */
+  .gm.is-landscape-video .gm-video-wrap{
+   max-width: 92vw;
+   margin: 0 auto;
+  }
+
+  .gm.is-landscape-video{
+   --gm-footer-h: 140px;
+  }
 }
 
 
